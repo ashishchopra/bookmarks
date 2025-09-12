@@ -1,6 +1,10 @@
 from django.contrib.auth import get_user_model
+from account.models import Profile
 
 User = get_user_model()
+
+def create_profile(backend, user, *args, **kwargs):
+    Profile.objects.get_or_create(user=user)
 
 class EmailAuthBackend:
     def authenticate(self, request, username=None, password=None):
