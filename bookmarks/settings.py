@@ -14,6 +14,8 @@ from pathlib import Path
 
 from decouple import config
 
+import images.apps
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,6 +35,7 @@ ALLOWED_HOSTS = ['bookmarks.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
+    'images.apps.ImagesConfig',
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
