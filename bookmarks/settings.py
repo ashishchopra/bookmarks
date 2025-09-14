@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'django_extensions'
+    'django_extensions',
+    'easy_thumbnails'
 ]
 
 MIDDLEWARE = [
@@ -164,3 +165,5 @@ if DEBUG:
     import mimetypes
     mimetypes.add_type('application/javascript', '.js', True)
     mimetypes.add_type('text/css', '.css', True)
+
+THUMBNAIL_DEBUG = True
