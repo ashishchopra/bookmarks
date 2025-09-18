@@ -1,9 +1,8 @@
-from django.core.management.commands.runserver import naiveip_re
-from django.shortcuts import render
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from django.http import HttpResponse
+from django.shortcuts import render
 
 from .forms import (
     LoginForm,
@@ -11,7 +10,7 @@ from .forms import (
     UserEditForm,
     ProfileEditForm
 )
-from .models import Profile
+
 
 @login_required
 def dashboard(request):
@@ -50,7 +49,6 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            Profile.objects.create(user=new_user)
             return render(
                 request,
                 'account/register_done.html',
